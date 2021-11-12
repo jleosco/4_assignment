@@ -235,8 +235,6 @@ update_res(res3)
 p @restaurants
 
 
-
-
 # Delete: Create a method that takes a restaurants and deletes it from your array
 
 puts "Task 13"
