@@ -170,7 +170,102 @@ end
 puts average_review(res2)
 
 # create an array of restaurants and do CRUD actions
-# a simple that takes a restaurants and adds to your array
-# a simple that takes restaurants and updates that to your array
+
+puts "Task 10"
+
+@restaurants = [res1, res2]
+
+
+# Create: Create a method that takes a restaurants and adds to your array
+
+res3 = {
+  id: 3,
+  name: "Blue Copper",
+  location: {
+    city: "SLC",
+    state: "UT",
+  },
+  delivery: false,
+  days_open: "mon,tues,wed,thur,fri,sat,sun",
+  likes: 25,
+  dishes: [
+    { name: "Latte", price: 4.25, ingredients: ["Milk", "Espresso"] },
+    { name: "Scone", price: 2.25, ingredients: ["Flour", "Blueberries"] },
+  ],
+  reviews: [
+    { user_id: 1, rating: 4 },
+    { user_id: 2, rating: 5 },
+  ],
+}
+
+
+def add_res(res)
+  @restaurants.push(res)
+end
+
+add_res(res3)
+p @restaurants
+
+# Read: Create a method that prints all restaurants in the array
+
+
+puts "Task 11"
+
+def print_res(res)
+  res.each do |restaurant|
+    p restaurant
+  end
+end
+
+print_res(@restaurants)
+
+
+# Update: Create a method that takes restaurants and updates that to your array
+
+puts "Task 12"
+
+def update_res (res)
+  puts "Choose which restaurant to update:"
+  new_res = "1/n".chomp.to_i #included to show how user input would be handled
+  new_res = new_res - 1
+  @restaurants[new_res] = res
+end
+
+update_res(res3)
+p @restaurants
+
+
+
+
+# Delete: Create a method that takes a restaurants and deletes it from your array
+
+puts "Task 13"
+
+def delete_res
+  puts "Choose which restaurant to delete:"
+  old_res = "3/n".chomp.to_i #included to show how user input would be handled
+  old_res = old_res - 1
+  @restaurants.delete_at (old_res)
+end
+
+delete_res
+p @restaurants
+
 # loop through your restaurants and return those with likes > 500 (select/filter)
+
+def add_res(res)
+  @restaurants.push(res)
+end
+
+add_res(res1) #added to include all restaurants again after above methods
+
+puts "Task 14"
+
+def above_500 (restaurants)
+  rest = restaurants.select {|res| res[:likes] > 500}
+  p rest
+end
+
+above_500 (@restaurants)
+
 # No interaction with terminal
